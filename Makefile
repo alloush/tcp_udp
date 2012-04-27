@@ -2,21 +2,21 @@
 
 #LIBS = -lxnet -lsocket -lpthread
 CFLAGS = -Wall -g -o
-CODELIB = api.c buffers.c checksum.c checksum.h protocol.h
+CODELIB = api.c buffers.c checksum.c protocol.h
  
 all: ftpClient ftpServer tcpd tcpdServer
 
-ftpClient: ftpClient.c $(CODELIB)
-	gcc $(CFLAGS) ClientEXE/ftpClient ftpClient.c $(LIBS)
+ftpClient: ftpClient.c 
+	gcc $(CFLAGS) ClientEXE/ftpClient ftpClient.c $(CODELIB) $(LIBS)
 	
-ftpServer: ftpServer.c $(CODELIB)
-	gcc $(CFLAGS) ServerEXE/ftpServer ftpServer.c $(LIBS)	
+ftpServer: ftpServer.c
+	gcc $(CFLAGS) ServerEXE/ftpServer ftpServer.c $(CODELIB) $(LIBS)	
 	
-tcpd: tcpd.c $(CODELIB)
-	gcc $(CFLAGS) ClientEXE/tcpd tcpd.c $(LIBS)
+tcpd: tcpd.c
+	gcc $(CFLAGS) ClientEXE/tcpd tcpd.c $(CODELIB) $(LIBS)
 	
-tcpdServer: tcpd.c $(CODELIB)
-	gcc $(CFLAGS) ServerEXE/tcpd tcpd.c $(LIBS)			
+tcpdServer: tcpd.c
+	gcc $(CFLAGS) ServerEXE/tcpd tcpd.c $(CODELIB) $(LIBS)
 
 clean:
-	rm -f ClientEXE/*.o ClientEXE/*.o ServerEXE/ftpServer ClientEXE/ftpClient ServerEXE/tcpd ClientEXE/tcpd
+	rm -f ClientEXE/*.* ClientEXE/*.*
