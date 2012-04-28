@@ -1,4 +1,4 @@
-/*
+/**
 * Aaron D'Amico
 * April 27, 2012
 * 678 TCP over UDP project 
@@ -18,7 +18,11 @@ int main (int argc, char *argv[])
 
 	/* Set up ints for return values of semaphores, shared memory, and files */
 	unsigned int fileNameLength = 0;
+	int inputFileHandler;	
 
+	/* hold various return values for error checks */
+	int result;
+	
 	/* validate that the appropriate arguments have been passed in */
 	if(argc < 4)
 	{
@@ -35,12 +39,19 @@ int main (int argc, char *argv[])
 	}
 	
 	/* open file */
+	inputFileHandler = open (argv[3], O_RDONLY);
+	if ( inputFileHandler < 0)
+	{
+	    perror("error: ");
+		return(1);
+	}
 	
-	/* get file size */
+	/* get file size */ 
+	fseek(inputFileHandler, 0L, SEEK_END);
+	fileSize = ftell(inputFileHandler);
+	printf("file size %i", inputFileHandler);
+	fseek (inputFileHandler, 0L, SEEK_SET);
 	
-	
-	/* attached to shared memory */
-
 	/* loop till end of file*/
 		/* initialized values of semaphores arememlock = 1 and sync = 0 */
 		/* read file into buffer */
