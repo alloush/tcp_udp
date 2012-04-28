@@ -42,18 +42,12 @@ int main (int argc, char *argv[])
 	/* attached to shared memory */
 
 	/* loop till end of file*/
+		/* initialized values of semaphores arememlock = 1 and sync = 0 */
+		/* read file into buffer */
 		/* semaphore memlock wait */
 		/* copy buffer to sharedmemory */
 		/* semaphore memlock signal */
 		/* semaphore sync signal */
-		
-		/**
-		* tcpd critical section will be, note memlock = 1 and sync = 0
-		* semaphore sync wait
-		* semaphore memlock wait
-		* critical section
-		* semaphore memlock signal
-		*/
 		
 	/* close up sharedmemory file and  */
 
