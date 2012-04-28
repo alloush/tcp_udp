@@ -18,6 +18,7 @@ int main (int argc, char *argv[])
 
 	/* Set up ints for return values of semaphores, shared memory, and files */
 	unsigned int fileNameLength = 0;
+	unsigned int fileSize;
 	int inputFileHandler;	
 
 	/* hold various return values for error checks */
@@ -47,11 +48,12 @@ int main (int argc, char *argv[])
 	}
 	
 	/* get file size */ 
-	fseek(inputFileHandler, 0L, SEEK_END);
-	fileSize = ftell(inputFileHandler);
-	printf("file size %i", inputFileHandler);
-	fseek (inputFileHandler, 0L, SEEK_SET);
-	
+	struct stat fileStat;
+	fstat (inputFileHandler, &fileStat);
+	fileSize = fileStat.st_size;
+	printf("file size is %i", fileSize);
+	printf("\n");
+
 	/* loop till end of file*/
 		/* initialized values of semaphores arememlock = 1 and sync = 0 */
 		/* read file into buffer */
@@ -61,5 +63,12 @@ int main (int argc, char *argv[])
 		/* semaphore sync signal */
 		
 	/* close up sharedmemory file and  */
-
+	result = close(inputFileHandler);
+	if (result  < 0)
+	{
+	    perror("error: ");
+		return(1);
+	}
+	
+	return 1;
 }
