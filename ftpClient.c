@@ -16,7 +16,7 @@ void free_data()
 int main (int argc, char *argv[])
 {
 
-	/* set up ints for return values of semaphores, shared memory, and files */
+	/* Set up ints for return values of semaphores, shared memory, and files */
 	unsigned int fileNameLength = 0;
 
 	/* validate that the appropriate arguments have been passed in */
