@@ -54,6 +54,8 @@ int main (int argc, char *argv[])
 	printf("file size is %i", fileSize);
 	printf("\n");
 
+	/* set up shared memory */
+
 	/* loop till end of file*/
 		/* initialized values of semaphores arememlock = 1 and sync = 0 */
 		/* read file into buffer */
@@ -70,5 +72,5 @@ int main (int argc, char *argv[])
 		return(1);
 	}
 	
-	return 1;
+	exit(0);
 }

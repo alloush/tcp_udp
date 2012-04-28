@@ -10,7 +10,14 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
+#include <sys/sem.h>
+#include <sys/shm.h>
+#include <sys/types.h>
 
+/* MACROS ********************************************************************/
+
+#define BUFFER_SIZE 1000
+#define KEY 1010;
 
 /* API ************************************************************************/
 
