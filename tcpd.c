@@ -10,29 +10,28 @@
 int main (int argc, char *argv[])
 {
 	
-	/* set up ints for semaphore, sharedmemory, sockets and pipes  */
-	/* pipes are used to communicate with timer process */
+	/* set up ints for sockets, tcp and udp */
 	
 	/* set up sockets using api of tcp calls over udp */
 
 	/* loop */		
 		/**
-		* semaphores initialized values are memlock = 1 and sync = 0
-		* semaphore sync wait
-		* semaphore memlock wait
-		* critical section, read from buffer
-		* semaphore memlock signal
+		 * read buffer from ftpc on tcp socket
 		*/
 		
 		/**
 		* do stuff to the just read buffer
-		* send to timer process
-		* add to rolling send buffer
-		* send to timer via sockets
+		* send to timer process via tcp socket
+		* read from time socket to check for packet resends
+		* if packet needs to get resent put it on top of a queue	
 		*/
+		
+		/**
+		 * write buffer to Troll udp socket from queue
+		 */
 	
 	/**
-	* close sockets, sharedmemory and pipes
+	* close sockets 
 	*/
 
 }

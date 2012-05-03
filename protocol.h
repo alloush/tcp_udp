@@ -10,9 +10,6 @@
 #include <string.h>
 #include <time.h>
 #include <unistd.h>
-#include <sys/sem.h>
-#include <sys/shm.h>
-#include <sys/types.h>
 
 /* MACROS ********************************************************************/
 

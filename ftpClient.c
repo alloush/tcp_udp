@@ -16,7 +16,7 @@ void free_data()
 int main (int argc, char *argv[])
 {
 
-	/* Set up ints for return values of semaphores, shared memory, and files */
+	/* Set up ints for return values of files, and sockets */
 	unsigned int fileNameLength = 0;
 	unsigned int fileSize;
 	int inputFileHandler;	
@@ -54,17 +54,16 @@ int main (int argc, char *argv[])
 	printf("file size is %i", fileSize);
 	printf("\n");
 
-	/* set up shared memory */
+	/* funtion, set up tcp socket with no return value and global variables 
+	 * passed by reference
+	 * /	
 
 	/* loop till end of file*/
-		/* initialized values of semaphores arememlock = 1 and sync = 0 */
-		/* read file into buffer */
-		/* semaphore memlock wait */
-		/* copy buffer to sharedmemory */
-		/* semaphore memlock signal */
-		/* semaphore sync signal */
-		
-	/* close up sharedmemory file and  */
+		/* send buffer to socket */
+		/*error check socket */
+
+	
+	/* close up file and other memory */
 	result = close(inputFileHandler);
 	if (result  < 0)
 	{
